@@ -144,7 +144,7 @@ class BranchPattern(Pattern):
     def flat(self, *types):
         if type(self) in types:
             return [self]
-        return sum([child.flat(*types) for child in self.children], [])
+        return sum((child.flat(*types) for child in self.children), [])
 
 
 class Argument(LeafPattern):
